@@ -63,7 +63,7 @@ public WebDriver driver;
 		//choosefile.sendKeys("C:\\Users\\user\\Pictures\\Screenshots\\Screenshot (8).png");
 	
 		 FileUploadUtility file= new  FileUploadUtility();
-				 file.fileUploadUsingSendKeys(choosefile, Constant.TESTDATAIMAGES);
+	    file.fileUploadUsingSendKeys(choosefile, Constant.TESTDATAIMAGES);
 	}
 	
 	public void clickTopMenu()
