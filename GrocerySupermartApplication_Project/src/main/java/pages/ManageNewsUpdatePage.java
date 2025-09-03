@@ -5,6 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
+
+
 public class ManageNewsUpdatePage {
 	
 	public WebDriver driver;
@@ -17,10 +20,19 @@ public class ManageNewsUpdatePage {
 	
 	@FindBy(xpath="//div[@class='row']//div[7]//a") WebElement moreinfo;
 	
-	@FindBy(xpath="//a[@onclick='click_button(1)']") WebElement newbutton;
+	@FindBy(xpath="//a[@onclick='click_button(2)']") WebElement searcbutton;
 	
-	@FindBy(xpath="//button[text()='Save']") WebElement save;
+	@FindBy(xpath="//input[@class='form-control']") WebElement textbox;
 	
+	@FindBy(xpath="//button[@name='Search']") WebElement searcbutton2;
+	
+	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/news/edit?edit=7758&page_ad=1' and @class='btn btn-sm btn btn-primary btncss']") WebElement actionbutton;
+	
+	@FindBy(xpath="//textarea[@id='news']")WebElement textareanews;
+	
+	@FindBy(xpath="//button[text()='Update']")WebElement updatebutton;
+	
+	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']") WebElement alerts;
 	
 	
 	public void moreInfo() {
@@ -28,14 +40,46 @@ public class ManageNewsUpdatePage {
 	}
 	
 	
-	public void newButtonClick()
+	public void searcButtonClick()
 	{
-		newbutton.click();
+		searcbutton.click();
 	}
 
 	
-	public boolean isSaveButtonEnabled()
+	public void enterSearcMsg(String msgs)
 	{
-		return save.isEnabled();
+	textbox.sendKeys(msgs);
+	}
+	
+	public void searcButtonClicks()
+	{
+		searcbutton2.click();
+	}
+	
+	
+	
+	public void actionButonClick()
+	{
+		
+		//actionbutton.click();
+		PageUtility page=new PageUtility();
+		page.click(driver, actionbutton);
+	}
+	
+	public void enterTextMsg(String msgs)
+	{
+		textareanews.clear();
+	textareanews.sendKeys(msgs);
+	}
+	
+	public void clickUpdateButon()
+	{
+		updatebutton.click();
+	}
+	
+	
+	public boolean alertMsgDisplay()
+	{
+		return alerts.isDisplayed();
 	}
 }

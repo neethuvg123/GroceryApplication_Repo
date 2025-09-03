@@ -33,7 +33,7 @@ public class LogOutPage {
 		logout.click();
 	}
 	
-	public boolean viewSignin()
+	public boolean isViewSignin()
 	{
 		return signin.isDisplayed();
 	}

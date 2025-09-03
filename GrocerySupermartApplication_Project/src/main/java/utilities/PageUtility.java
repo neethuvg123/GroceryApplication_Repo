@@ -89,9 +89,9 @@ public class PageUtility {
 			
 			//javascript executor :- sndkeys and click
 			
-			public void sendKeysclick(WebDriver driver,WebElement element) {
+			public void sendKeysclick(WebDriver driver,WebElement element,String Value) {
 				JavascriptExecutor js = (JavascriptExecutor) driver;
-				js.executeScript("arguments[0].value='attributevalue';",element );
+				js.executeScript("arguments[0].value='Value';",element );
 			}
 			
 			

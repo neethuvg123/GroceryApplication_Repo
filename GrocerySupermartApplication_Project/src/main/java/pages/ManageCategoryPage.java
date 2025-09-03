@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import constant.Constant;
 import utilities.FileUploadUtility;
+import utilities.PageUtility;
 
 public class ManageCategoryPage {
 public WebDriver driver;
@@ -27,18 +28,18 @@ public WebDriver driver;
 	@FindBy (xpath="//input[@id='category']") WebElement category;
 	
 	
-	@FindBy (xpath="//div[@class='ms-selectable']//child::ul") WebElement selectgroup;
+	@FindBy (xpath="//ul[@class='ms-list']//child::li[@id='134-selectable']") WebElement selectgroup;
 	
 	
-	//@FindBy (xpath="//li[@id='134-selection']") WebElement selectgroup;
 	@FindBy (xpath="//input[@id='main_img']") WebElement choosefile;
 	
-	@FindBy(xpath="//button[text()='Save']") WebElement save;
+	
 	@FindBy(xpath="//input[@name='top_menu' and @value='yes']") WebElement yesbutton;
 	
 	@FindBy(xpath="//input[@name='show_home' and @value='yes']") WebElement radiobutton;
+	@FindBy(xpath="//button[@type='submit']") WebElement save;
 	
-	
+	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']")WebElement alert;
 	public void moreinfo()
 	{
 		moreinfo.click();
@@ -56,30 +57,39 @@ public WebDriver driver;
 	
 	public void groupselect()
 	{
-		selectgroup.click();
+		PageUtility page=new PageUtility();
+		page.click(driver, selectgroup);
 	}
 	public void choosefile()
 	{
-		//choosefile.sendKeys("C:\\Users\\user\\Pictures\\Screenshots\\Screenshot (8).png");
+		
 	
 		 FileUploadUtility file= new  FileUploadUtility();
-	    file.fileUploadUsingSendKeys(choosefile, Constant.TESTDATAIMAGES);
+	    file.fileUploadUsingSendKeys(choosefile, Constant.TESTDATAIMAGE4);
 	}
 	
 	public void clickTopMenu()
 	{
+		PageUtility page=new PageUtility();
+		page.scrollBy(driver);
+		
 		yesbutton.click();
 	}
 	
 	public void clickSowHome()
-	{
+	{ 
 		radiobutton.click();
 	}
 	
 	public void saveButton()
 	{
-		save.click();
+		PageUtility page=new PageUtility();
+		
+		page.click(driver,save);
 	}
 	
-	
+	public boolean viewAlert()
+	{
+		return alert.isDisplayed();
+	}
 }
