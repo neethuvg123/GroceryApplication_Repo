@@ -2,7 +2,6 @@ package testscript;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.lang.invoke.ConstantBootstraps;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -17,7 +16,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
 import constant.Constant;
-import io.opentelemetry.exporter.logging.SystemOutLogRecordExporter;
 import utilities.ScreenShotUtility;
 
 

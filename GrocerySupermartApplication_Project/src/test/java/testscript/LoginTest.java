@@ -48,7 +48,7 @@ public class LoginTest extends Base {
 		loginpage.enterPassword(password);
 		loginpage.clickSignin();
 		boolean alertmsg = loginpage.isAlertmessageDisplayed();
-		Assert.assertTrue(alertmsg,Constant.LOGIN_WITH_INCORRECT_USERNAME);
+		Assert.assertTrue(alertmsg,Constant.LOGIN_WITH_INVALID_CREDENTIAL);
 
 	}
 
@@ -64,7 +64,7 @@ public class LoginTest extends Base {
 		loginpage.enterPassword(password);
 		loginpage.clickSignin();
 		boolean alertmsg = loginpage.isAlertmessageDisplayed();
-		Assert.assertTrue(alertmsg,Constant.LOGIN_WITH_INCORRECT_PASSWORD);
+		Assert.assertTrue(alertmsg,Constant.LOGIN_WITH_INVALID_CREDENTIAL);
 
 	}
 
